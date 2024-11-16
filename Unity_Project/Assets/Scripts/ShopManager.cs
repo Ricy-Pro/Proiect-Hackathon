@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
 {
     // Singleton instance
     public static ShopManager Instance;
-
+    public CameraController cameraController;
     public GameObject shopPanel;  // Reference to the Shop panel
     public GameObject shopItemButtonPrefab;  // Button prefab to instantiate
     public Transform shopContent;  // The content area to hold the buttons (where we’ll add the items)
@@ -74,6 +74,7 @@ public class ShopManager : MonoBehaviour
         {
             Debug.LogWarning("Close button is not assigned!");
         }
+        
 
         // Populate the shop with items
         PopulateShop();
@@ -82,12 +83,14 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         shopPanel.SetActive(false);  // Hide the shop panel when the button is clicked
+        cameraController.isShopOpen = false;
     }
 
     // Open the shop when the building is clicked (this will be connected to a collider)
     public void OpenShop()
     {
         shopPanel.SetActive(true);  // Show the shop panel
+        cameraController.isShopOpen = true;
     }
 
     // Populate the shop with buttons based on the items
