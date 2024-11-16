@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Castle
+  - TowerPath
   - Mob
-  - OUT
-  - CastleHealth
   layers:
   - Default
   - TransparentFX
@@ -15,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - TowerPlacement
   - 
   - 
   - 
@@ -42,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 1931820037
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
