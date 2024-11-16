@@ -1,15 +1,23 @@
+using System.Collections.Generic; // For using HashSet
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TowerPlacementManager : MonoBehaviour
 {
     public GameObject towerPrefab;  // Reference to the tower prefab
-    public Tilemap tilemap;  // Reference to the Tilemap component
-    public TileBase goodTile;  // Reference to the good tile used in the map
-    public float gridSize = 1f;  // Size of the grid
+    public Tilemap tilemap;         // Reference to the Tilemap component
+    public TileBase goodTile;       // Reference to the good tile used in the map
+    public float gridSize = 1f;     // Size of the grid
 
-    private GameObject currentTower;  // The tower object being placed
-    private SpriteRenderer towerRenderer;  // Reference to the sprite renderer of the current tower
+    private GameObject currentTower;           // The tower object being placed
+    private SpriteRenderer towerRenderer;      // Reference to the sprite renderer of the current tower
+    private HashSet<Vector3Int> occupiedTiles; // Track occupied tile positions
+
+    void Start()
+    {
+        // Initialize the set to track occupied tiles
+        occupiedTiles = new HashSet<Vector3Int>();
+    }
 
     void Update()
     {
@@ -32,7 +40,7 @@ public class TowerPlacementManager : MonoBehaviour
             placementPos = SnapToGrid(placementPos);  // Snap to grid position
             currentTower.transform.position = placementPos;
 
-            // Check if the placement is valid (whether the position is on the "good" tile)
+            // Check if the placement is valid (good tile and not occupied)
             bool isValidPlacement = IsValidPlacement(placementPos);
 
             // Change the tower color based on whether placement is valid
@@ -66,6 +74,9 @@ public class TowerPlacementManager : MonoBehaviour
     void PlaceTower()
     {
         // Finalize the placement of the tower
+        Vector3Int tilePosition = tilemap.WorldToCell(currentTower.transform.position);
+        occupiedTiles.Add(tilePosition); // Mark the tile as occupied
+
         towerRenderer.color = new Color(1, 1, 1, 1);  // Set the tower to full opacity when placed
         currentTower = null;  // Reset the current tower (so player can place another tower)
     }
@@ -92,7 +103,7 @@ public class TowerPlacementManager : MonoBehaviour
         Vector3Int tilePosition = tilemap.WorldToCell(position);
         TileBase tile = tilemap.GetTile(tilePosition);
 
-        // Check if the tile is the good tile
-        return tile != null && tile == goodTile;  // Valid placement only on good tiles
+        // Check if the tile is the good tile and not already occupied
+        return tile != null && tile == goodTile && !occupiedTiles.Contains(tilePosition);
     }
 }
