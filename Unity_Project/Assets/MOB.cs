@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class MOB : MonoBehaviour
 {
+    public Transform castleTransform;
     private int CurrentHealth;
     public int maxHealth;
     public int damage;
-    public float moveSpeed;
+    public float moveSpeed = 10;
 
     public CastleHealth CastleHealth;
     CastleHealth detectedCastle;
@@ -14,6 +15,8 @@ public class MOB : MonoBehaviour
     public int laneIndex;     // Assigned lane
     public GameObject mobPrefab;
     public float spawnInterval = 2f;
+    public float rotationSpeed = 5f; // Smooth rotation speed (adjust as needed)
+
 
     public Animator animator;
     Coroutine attackOrder;
@@ -41,7 +44,7 @@ public class MOB : MonoBehaviour
         
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
         StartCoroutine(BlinkRed());
@@ -85,20 +88,34 @@ public class MOB : MonoBehaviour
         }
     }
 
-    void Move()
-    {
-        transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
-    }
+    //void Move()
+    //{
+    //    transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
+    //}
 
     void Update()
     {
         if (!detectedCastle)
         {
-            Move();
+
+            MoveTowardsCastle();
         }
         else if (attackOrder == null) // Start attacking only if not already attacking
         {
             Attack();
+        }
+    }
+
+    void MoveTowardsCastle()
+    {
+        if (castleTransform != null)
+        {
+            // Calculate the direction to the castle
+            Vector2 direction = (castleTransform.position - transform.position).normalized;
+
+            // Move the mob toward the castle without rotating the sprite
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            //Move();
         }
     }
 }
