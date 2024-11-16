@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6453862559601406640}
   - component: {fileID: 1369996035859641888}
-  - component: {fileID: 8493995219973871964}
+  - component: {fileID: 691834290457016750}
   m_Layer: 0
   m_Name: base2_0
-  m_TagString: CastleHealth
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8493995219973871964
+--- !u!114 &691834290457016750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,9 +97,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 327422640680431212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 862f0e503b7bc744d96f8521286edeca, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ac3317e2174e3d45b59c9677715c4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBar: {fileID: 0}
-  healthBarFillImage: {fileID: 0}
