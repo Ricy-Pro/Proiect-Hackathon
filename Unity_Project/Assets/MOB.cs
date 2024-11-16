@@ -3,94 +3,82 @@ using UnityEngine;
 
 public class MOB : MonoBehaviour
 {
-    public Transform castleTransform;
-    private int CurrentHealth;
-    public int maxHealth;
-    public int damage;
-    public float moveSpeed;
+    public Transform castleTransform;   // Target for the mob
+    public int maxHealth;               // Maximum health of the mob
+    public int damage;                  // Damage dealt to the castle
+    public float moveSpeed;             // Speed of the mob's movement
 
-    public CastleHealth CastleHealth;
-    CastleHealth detectedCastle;
-    public Transform[] lanes; // Array of lanes
-    public int laneIndex;     // Assigned lane
-    public float spawnInterval = 2f;
+    private int currentHealth;          // Current health of the mob
+    private CastleHealth detectedCastle; // Reference to the castle's health script
+    private Coroutine attackCoroutine;   // Coroutine for attack logic
 
-
-    public Animator animator;
-    Coroutine AttackOrder;
-    
     protected virtual void Start()
     {
-        Debug.Log("Base Mob");
-        
-    }
-
-    void Attack()
-    {
-        
-        
-            detectedCastle.TakeDamage(damage);
-            Debug.Log("Castle under attack! Damage dealt: " + damage);
-            Object.Destroy(gameObject);
-        
+        currentHealth = maxHealth;      // Initialize mob's health
     }
 
     public virtual void TakeDamage(int damage)
     {
-        CurrentHealth -= damage;
-        StartCoroutine(BlinkRed());
+        currentHealth -= damage;       // Reduce health by the damage amount
+        StartCoroutine(BlinkRed());    // Visual feedback for taking damage
 
-        if (CurrentHealth <= 0)
+        if (currentHealth <= 0)        // Destroy mob if health reaches zero
             Destroy(gameObject);
     }
 
     IEnumerator BlinkRed()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.2f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer)
+        {
+            spriteRenderer.color = Color.red;     // Change sprite color to red
+            yield return new WaitForSeconds(0.2f); // Wait briefly
+            spriteRenderer.color = Color.white;   // Revert to original color
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (detectedCastle != null)
-            return;
-
-        if (collision.CompareTag("CastleHealth"))
+        if (collision.CompareTag("CastleHealth") && detectedCastle == null)
         {
             detectedCastle = collision.GetComponent<CastleHealth>();
-            Debug.Log("Castle detected!");
         }
     }
 
-    //void Move()
-    //{
-    //    transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
-    //}
-
-    void Update()
+    private void Update()
     {
-        if (!detectedCastle)
+        if (detectedCastle == null)    // If no castle detected, move toward it
         {
-
             MoveTowardsCastle();
         }
-        else if (AttackOrder == null) // Start attacking only if not already attacking
+        else if (attackCoroutine == null) // If castle detected and not already attacking
         {
-            Attack();
+            attackCoroutine = StartCoroutine(Attack());
         }
     }
 
-    void MoveTowardsCastle()
+    private void MoveTowardsCastle()
     {
         if (castleTransform != null)
         {
-            // Calculate the direction to the castle
+            // Calculate direction to the castle and move
             Vector2 direction = (castleTransform.position - transform.position).normalized;
-
-            // Move the mob toward the castle without rotating the sprite
             transform.Translate(direction * moveSpeed * Time.deltaTime);
-            //Move();
+        }
+    }
+
+    private IEnumerator Attack()
+    {
+        while (true)
+        {
+            if (detectedCastle != null)
+            {
+                detectedCastle.TakeDamage(damage);  // Damage the castle
+                Debug.Log("Castle under attack! Damage dealt: " + damage);
+            }
+
+            Destroy(gameObject);                   // Destroy mob after attack
+            yield break;                           // End coroutine
         }
     }
 }

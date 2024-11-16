@@ -179,11 +179,6 @@ MonoBehaviour:
   maxHealth: 12
   damage: 5
   moveSpeed: 1
-  CastleHealth: {fileID: 0}
-  lanes: []
-  laneIndex: 0
-  spawnInterval: 2
-  animator: {fileID: 0}
-  TimeToDouble: 2
+  timeToDouble: 2
   repelForce: 5
-  mobPrefab: {fileID: 0}
+  mobPrefab: {fileID: 224828161086645190}

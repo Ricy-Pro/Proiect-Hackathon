@@ -3,42 +3,39 @@ using UnityEngine;
 
 public class Virus_Mob : MOB
 {
-    public float TimeToDouble = 2f; // Time interval to double
-    public float repelForce = 5f;   // Force applied to separate mobs on collision
-    public GameObject mobPrefab;         // The mob prefab to spawn
+    [Header("Virus Specific Settings")]
+    public float timeToDouble = 2f;    // Time interval to duplicate
+    public float repelForce = 5f;      // Force applied to separate mobs
+    public GameObject mobPrefab;       // Prefab for spawning new mobs
 
     protected override void Start()
     {
         base.Start();
-        StartCoroutine(DoubleItself());
+        StartCoroutine(DoubleItself()); // Begin the duplication behavior
     }
 
     private IEnumerator DoubleItself()
     {
         while (true)
         {
-            yield return new WaitForSeconds(TimeToDouble);
+            yield return new WaitForSeconds(timeToDouble);
 
-            // Spawn the mob
-            GameObject mob = Instantiate(mobPrefab, transform.position, transform.rotation);
-            MOB mobScript = mob.GetComponent<MOB>();
-            if (mobScript != null)
+            // Instantiate a duplicate mob
+            GameObject newMob = Instantiate(mobPrefab, transform.position, transform.rotation);
+            if (newMob.TryGetComponent(out MOB mobScript))
             {
-                mobScript.castleTransform = castleTransform;
+                mobScript.castleTransform = castleTransform; // Assign castle target to the new mob
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the collided object is another mob
         if (collision.gameObject.CompareTag("Mob"))
         {
-            // Calculate direction away from the other mob
+            // Push mobs apart to prevent overlap
             Vector2 direction = (transform.position - collision.transform.position).normalized;
-
-            // Apply a force to separate the mobs
-            GetComponent<Rigidbody2D>().AddForce(direction * repelForce, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>()?.AddForce(direction * repelForce, ForceMode2D.Impulse);
         }
     }
 }
