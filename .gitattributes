@@ -1,2 +1,23 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Ll]ogs/
+/UserSettings/
+/MemoryCaptures/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.pidb
+*.user
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+.DS_Store
+Thumbs.db
