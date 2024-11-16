@@ -66,7 +66,7 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I)) // Toggle Inventory UI on "I" press
-        {
+        {   Debug.Log("adadadada");
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         }
     }
