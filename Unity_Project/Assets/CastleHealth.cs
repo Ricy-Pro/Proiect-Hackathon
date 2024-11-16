@@ -5,7 +5,7 @@ public class CastleHealth : MonoBehaviour
 {
     // Define the maximum health of the castle
     public int maxHealth = 100;
-    public int currentHealth;
+    private int currentHealth;
 
     // Reference to the Health Bar (Slider)
     public Slider healthBar;
