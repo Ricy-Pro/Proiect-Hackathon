@@ -7,7 +7,27 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     // Define the code blocks
-    public enum CodeBlockType { Firewall, SQLInjection, DDosProtection, TwoFactorAuthentication }
+    public enum CodeBlockType 
+{ 
+    FirewallBlock1, 
+    FirewallBlock2, 
+    FirewallBlock3, 
+    FirewallBlock4, 
+    
+    SQLInjectionBlock1, 
+    SQLInjectionBlock2, 
+    SQLInjectionBlock3, 
+    SQLInjectionBlock4, 
+    
+    DDoSProtectionBlock1, 
+    DDoSProtectionBlock2, 
+    DDoSProtectionBlock3, 
+    
+    TwoFactorAuthenticationBlock1, 
+    TwoFactorAuthenticationBlock2, 
+    TwoFactorAuthenticationBlock3
+}
+
 
     // Inventory holds the count of each code block
     public int[] inventory = new int[15];  // 15 code blocks in total
@@ -99,13 +119,22 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Add a code block to the inventory (for testing purposes)
-    public void AddCodeBlock(CodeBlockType blockType)
+public void AddCodeBlock(CodeBlockType blockType)
+{
+    // Update inventory based on the blockType (now we handle 15 distinct items)
+    int index = (int)blockType;  // Each blockType directly corresponds to an inventory index
+
+    if (index >= 0 && index < inventory.Length)
     {
-        int startIndex = (int)blockType * 4;
-        for (int i = startIndex; i < startIndex + 4 && i < inventory.Length; i++)
-        {
-            inventory[i]++;
-        }
-        UpdateInventoryUI();
+        inventory[index]++;  // Increment the specific item in the inventory
     }
+    else
+    {
+        Debug.LogWarning("Invalid blockType index!");
+    }
+
+    // Update the UI to reflect the inventory state after adding the item
+    UpdateInventoryUI();
+}
+
 }

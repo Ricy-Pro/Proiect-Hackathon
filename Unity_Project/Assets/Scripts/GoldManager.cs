@@ -28,13 +28,26 @@ public class GoldManager : MonoBehaviour
     void GenerateGold()
     {
         gold += passiveGoldPerSecond;
-        GoldChanged?.Invoke(gold); // Notify all listeners (like UI) that gold has changed
+        TriggerGoldChangedEvent(); // Notify all listeners
     }
 
     // Function to manually add gold (e.g., from killing monsters)
     public void AddGold(int amount)
     {
         gold += amount;
-        GoldChanged?.Invoke(gold); // Notify listeners
+        TriggerGoldChangedEvent(); // Notify listeners
+    }
+
+    // Function to spend gold (deduction logic)
+    public void SpendGold(int amount)
+    {
+        gold -= amount;
+        TriggerGoldChangedEvent(); // Notify listeners
+    }
+
+    // Method to invoke the GoldChanged event
+    private void TriggerGoldChangedEvent()
+    {
+        GoldChanged?.Invoke(gold);
     }
 }
