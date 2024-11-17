@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower4_0 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3606293439871894184, guid: 94fca0b249a4f4449b2b504d2124e314, type: 3}
+      propertyPath: m_TagString
+      value: Firewall
+      objectReference: {fileID: 0}
     - target: {fileID: 5242653090727811335, guid: 94fca0b249a4f4449b2b504d2124e314, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -58,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317216215601587708, guid: 94fca0b249a4f4449b2b504d2124e314, type: 3}
       propertyPath: range
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7317216215601587708, guid: 94fca0b249a4f4449b2b504d2124e314, type: 3}
       propertyPath: damage
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7317216215601587708, guid: 94fca0b249a4f4449b2b504d2124e314, type: 3}
       propertyPath: fireRate

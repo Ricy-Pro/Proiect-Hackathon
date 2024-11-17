@@ -111,6 +111,7 @@ public class MiniGameManager : MonoBehaviour
                 default:
                     Debug.Log("Unexpected block type.");
                     break;
+            CloseMiniGame();
             }
         }
         else

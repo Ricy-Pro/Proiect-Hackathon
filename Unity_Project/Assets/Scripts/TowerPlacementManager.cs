@@ -6,6 +6,7 @@ public class TowerPlacementManager : MonoBehaviour
 {
     public Tilemap tilemap;         // Reference to the Tilemap component
     public TileBase goodTile;       // Reference to the good tile used in the map
+    public TileBase badTile;        // Reference to the bad tile used in the map
     public float gridSize = 1f;     // Size of the grid
 
     private GameObject currentTower;
@@ -51,6 +52,7 @@ public class TowerPlacementManager : MonoBehaviour
 
             bool isValidPlacement = IsValidPlacement(placementPos);
 
+            // Change tower preview color based on placement validity
             towerRenderer.color = isValidPlacement ? new Color(0, 1, 0, 0.5f) : new Color(1, 0, 0, 0.5f);
 
             // Place or cancel the tower placement when left-clicked
@@ -58,7 +60,7 @@ public class TowerPlacementManager : MonoBehaviour
             {
                 if (isValidPlacement)
                 {
-                    PlaceTower();
+                    PlaceTower(placementPos);
                 }
                 else
                 {
@@ -78,10 +80,16 @@ public class TowerPlacementManager : MonoBehaviour
         towerRenderer.color = new Color(0, 1, 0, 0.5f); // Semi-transparent green for preview
     }
 
-    void PlaceTower()
+    void PlaceTower(Vector3 position)
     {
-        Vector3Int tilePosition = tilemap.WorldToCell(currentTower.transform.position);
+        Vector3Int tilePosition = tilemap.WorldToCell(position);
         occupiedTiles.Add(tilePosition);
+
+        // Check if the tower is a Firewall and rotate it if on a horizontal road
+        if (currentTower.CompareTag("Firewall") && IsHorizontalRoad(tilePosition))
+        {
+            currentTower.transform.rotation = Quaternion.Euler(0, 0, 90); // Rotate 90 degrees
+        }
 
         towerRenderer.color = new Color(1, 1, 1, 1); // Full opacity once placed
         currentTower = null;
@@ -106,6 +114,38 @@ public class TowerPlacementManager : MonoBehaviour
     {
         Vector3Int tilePosition = tilemap.WorldToCell(position);
         TileBase tile = tilemap.GetTile(tilePosition);
-        return tile != null && tile == goodTile && !occupiedTiles.Contains(tilePosition);
+
+        if (currentTower == null)
+            return false;
+
+        // Check if the tower has the "Firewall" tag
+        bool isFirewall = currentTower.CompareTag("Firewall");
+
+        if (isFirewall)
+        {
+            // Firewall towers can only be placed on bad tiles
+            return tile != null && tile == badTile && !occupiedTiles.Contains(tilePosition);
+        }
+        else
+        {
+            // Other towers can only be placed on good tiles
+            return tile != null && tile == goodTile && !occupiedTiles.Contains(tilePosition);
+        }
+    }
+
+    bool IsHorizontalRoad(Vector3Int tilePosition)
+    {
+        // Check 4 tiles above and below for good tiles
+        
+        {
+            Vector3Int aboveTile = tilePosition + new Vector3Int(0, 4, 0);
+            Vector3Int belowTile = tilePosition + new Vector3Int(0, -4, 0);
+
+            if (tilemap.GetTile(aboveTile) != goodTile || tilemap.GetTile(belowTile) != goodTile)
+            {
+                return false; // If any tile is not a good tile, it's not a horizontal road
+            }
+        }
+        return true; // All checked tiles are good tiles, so it's a horizontal road
     }
 }
