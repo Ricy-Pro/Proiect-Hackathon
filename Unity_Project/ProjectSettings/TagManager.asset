@@ -15,7 +15,7 @@ TagManager:
   - Water
   - UI
   - TowerPlacement
-  - 
+  - Background
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Ground
     uniqueID: 1931820037
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 3798116283
     locked: 0
   - name: Default
     uniqueID: 0
