@@ -48,6 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2836634711166859675, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5830694933855508796, guid: 44bd0ffd32612934c809f20299fed673, type: 3}
+    - target: {fileID: 3345338409366068152, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345338409366068152, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8998776516619382642, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
       propertyPath: m_Name
       value: Ransomwre_Mob
@@ -58,19 +70,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6172047063282909029, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
+    - {fileID: 4207845143200573748, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8998776516619382642, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4724644610835696817}
+      addedObject: {fileID: 6236028186954902692}
   m_SourcePrefab: {fileID: 100100000, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
 --- !u!1 &7368125814399898910 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8998776516619382642, guid: 444bca7e4d1bb404692ba7ec69d34ff6, type: 3}
   m_PrefabInstance: {fileID: 1919312941678115436}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4724644610835696817
+--- !u!114 &6236028186954902692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,10 +92,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7368125814399898910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6c16e3071a6c94ebd99a303c668953, type: 3}
+  m_Script: {fileID: 11500000, guid: 183c1a1fd04a23b4eb79ccb2e485a57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 0}
-  maxHealth: 50
-  damage: 30
-  moveSpeed: 5
+  maxHealth: 60
+  damage: 20
+  moveSpeed: 4
+  repelForce: 5
+  collisionRadius: 0.5

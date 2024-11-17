@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5485261951749662544}
   - component: {fileID: 8945539644946571036}
   - component: {fileID: 7898380212490485680}
-  - component: {fileID: 7566103099071647405}
+  - component: {fileID: 1978881704621882585}
   m_Layer: 0
   m_Name: Spybot_Mob
   m_TagString: Mob
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6023504057619896223, guid: bbc13e9288bf72447b568b18ebbba4a9, type: 3}
+  m_Sprite: {fileID: -2531241511545790211, guid: 4d76e7da47aa708479ac35a957fb056f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.46, y: 1.47}
+    oldSize: {x: 1.1, y: 0.98}
     newSize: {x: 1.46, y: 1.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7566103099071647405
+--- !u!114 &1978881704621882585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,12 +172,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085444323716240087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01026e54a4c4cf14c815b5cfdbf4e946, type: 3}
+  m_Script: {fileID: 11500000, guid: 185e5b8fee937f14b90cdcc84997d2ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 0}
-  maxHealth: 10
-  damage: 2
-  moveSpeed: 10
-  separationRadius: 1
-  separationForce: 1
+  maxHealth: 80
+  damage: 10
+  moveSpeed: 2
+  repelForce: 5
+  collisionRadius: 0.5

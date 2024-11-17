@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4819567164850457988}
   - component: {fileID: 107895505494536191}
   - component: {fileID: 3152139769469513461}
-  - component: {fileID: 1300139441627771718}
+  - component: {fileID: 9215817402509341362}
   m_Layer: 0
   m_Name: Virus_Mob
   m_TagString: Mob
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6023504057619896223, guid: bbc13e9288bf72447b568b18ebbba4a9, type: 3}
+  m_Sprite: {fileID: 7723652632321733531, guid: 4e7dff2e1ed21ff4b81d14a673fad94a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.46, y: 1.47}
+    oldSize: {x: 1.51, y: 1.54}
     newSize: {x: 1.46, y: 1.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1300139441627771718
+--- !u!114 &9215817402509341362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,14 +172,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 224828161086645190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292a10587528b8f4dbe106de0e4b323d, type: 3}
+  m_Script: {fileID: 11500000, guid: 292fc0d23ddee0540ac172fe9ac2cdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 0}
-  maxHealth: 12
-  damage: 5
-  moveSpeed: 1
-  timeToDouble: 2
+  maxHealth: 20
+  damage: 20
+  moveSpeed: 10
   repelForce: 5
-  mobPrefab: {fileID: 224828161086645190}
+  collisionRadius: 0.5
+  timeToDouble: 2
+  mobPrefab: {fileID: 0}
   maxVirusCount: 10

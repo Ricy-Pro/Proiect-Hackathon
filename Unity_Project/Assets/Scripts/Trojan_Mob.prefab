@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9162578196737053024}
   - component: {fileID: 7321562283938392660}
   - component: {fileID: 2323364251825381708}
-  - component: {fileID: 1085894010054806629}
+  - component: {fileID: 3972390800006866233}
   m_Layer: 0
   m_Name: Trojan_Mob
   m_TagString: Mob
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6023504057619896223, guid: bbc13e9288bf72447b568b18ebbba4a9, type: 3}
+  m_Sprite: {fileID: -2951843035778274856, guid: 87d0823f209798344827f5332c406265, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.46, y: 1.47}
+    oldSize: {x: 1.19, y: 1.23}
     newSize: {x: 1.46, y: 1.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1085894010054806629
+--- !u!114 &3972390800006866233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,12 +172,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 993606006043844232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fe0bda7da678346944bbd984c0d1bb, type: 3}
+  m_Script: {fileID: 11500000, guid: f90b2111f1d5c8d449387a0cbbbe7722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 0}
-  maxHealth: 60
-  damage: 40
-  moveSpeed: 2
+  maxHealth: 40
+  damage: 10
+  moveSpeed: 5
   repelForce: 5
   collisionRadius: 0.5
