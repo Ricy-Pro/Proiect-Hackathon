@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2510968752775353043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5827796522305652926}
+  - component: {fileID: 4319846366021661062}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5827796522305652926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510968752775353043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3377008, y: -1.234145, z: -0.0055355513}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4319846366021661062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510968752775353043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a539b37d486a44ebbc5882a7c8be18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopPanel: {fileID: 0}
+  shopItemButtonPrefab: {fileID: 7812327577480177217, guid: 7e8b1f99d21166b4bbf37c0a50b2013c, type: 3}
+  shopContent: {fileID: 0}
+  closeButton: {fileID: 0}
+  codeDisplayText: {fileID: 0}
+  shopItems:
+  - itemName: Firewall Block 1
+    goldCost: 1
+  - itemName: Firewall Block 2
+    goldCost: 150
+  - itemName: Firewall Block 3
+    goldCost: 200
+  - itemName: Firewall Block 4
+    goldCost: 250
+  - itemName: SQL Injection Block 1
+    goldCost: 120
+  - itemName: SQL Injection Block 2
+    goldCost: 170
+  - itemName: SQL Injection Block 3
+    goldCost: 220
+  - itemName: SQL Injection Block 4
+    goldCost: 270
+  - itemName: DDoS Protection Block 1
+    goldCost: 130
+  - itemName: DDoS Protection Block 2
+    goldCost: 180
+  - itemName: DDoS Protection Block 3
+    goldCost: 230
+  - itemName: 2FA Block 1
+    goldCost: 140
+  - itemName: 2FA Block 2
+    goldCost: 190
+  - itemName: 2FA Block 3
+    goldCost: 240

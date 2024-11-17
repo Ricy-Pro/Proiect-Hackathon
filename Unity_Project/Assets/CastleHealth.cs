@@ -31,15 +31,29 @@ public class CastleHealth : MonoBehaviour
         }
     }
 
-    // Function to handle taking damage
-    public void TakeDamage(int damage)
+ public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Castle Health: " + currentHealth);
 
+        // Ensure health doesn't go below 0
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        // Update the health bar value
+        if (healthBar != null)
+        {
+            healthBar.value = (float)currentHealth / maxHealth * healthBar.maxValue;
+        }
+
+        // Update the health bar color based on health
+        if (healthBarFillImage != null)
+        {
+            UpdateHealthBarColor();
+        }
+
+        // If health reaches 0, handle destruction
         if (currentHealth <= 0)
         {
-            Object.Destroy(gameObject);
+            DestroyCastle();
         }
     }
 
