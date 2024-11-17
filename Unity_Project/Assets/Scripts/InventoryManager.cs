@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
 
     // Define the code blocks
     public enum CodeBlockType 
-{ 
+{   
     FirewallBlock1, 
     FirewallBlock2, 
     FirewallBlock3, 
