@@ -135,6 +135,7 @@ public class ShopManager : MonoBehaviour
 
             // Show the code
             ShowCode(item);
+            CloseShop();
 
             // Update the inventory UI
             InventoryManager.Instance.UpdateInventoryUI();
