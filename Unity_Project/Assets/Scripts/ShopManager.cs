@@ -26,22 +26,23 @@ public class ShopManager : MonoBehaviour
     public ShopItem[] shopItems = new ShopItem[] 
     {
         new ShopItem { itemName = "Firewall Block 1", goldCost = 1 },
-        new ShopItem { itemName = "Firewall Block 2", goldCost = 150 },
-        new ShopItem { itemName = "Firewall Block 3", goldCost = 200 },
-        new ShopItem { itemName = "Firewall Block 4", goldCost = 250 },
+        new ShopItem { itemName = "Firewall Block 2", goldCost = 1 },
+        new ShopItem { itemName = "Firewall Block 3", goldCost = 1 },
+        new ShopItem { itemName = "Firewall Block 4", goldCost = 1 },
 
-        new ShopItem { itemName = "SQL Injection Block 1", goldCost = 120 },
-        new ShopItem { itemName = "SQL Injection Block 2", goldCost = 170 },
-        new ShopItem { itemName = "SQL Injection Block 3", goldCost = 220 },
-        new ShopItem { itemName = "SQL Injection Block 4", goldCost = 270 },
+        new ShopItem { itemName = "SQL Injection Block 1", goldCost = 1 },
+        new ShopItem { itemName = "SQL Injection Block 2", goldCost = 1 },
+        new ShopItem { itemName = "SQL Injection Block 3", goldCost = 1 },
+        new ShopItem { itemName = "SQL Injection Block 4", goldCost = 1 },
 
-        new ShopItem { itemName = "DDoS Protection Block 1", goldCost = 130 },
-        new ShopItem { itemName = "DDoS Protection Block 2", goldCost = 180 },
-        new ShopItem { itemName = "DDoS Protection Block 3", goldCost = 230 },
+        new ShopItem { itemName = "DDoS Protection Block 1", goldCost = 1 },
+        new ShopItem { itemName = "DDoS Protection Block 2", goldCost = 1 },
+        new ShopItem { itemName = "DDoS Protection Block 3", goldCost = 1 },
+        new ShopItem { itemName = "DDoS Protection Block 4", goldCost = 1 },
 
-        new ShopItem { itemName = "2FA Block 1", goldCost = 140 },
-        new ShopItem { itemName = "2FA Block 2", goldCost = 190 },
-        new ShopItem { itemName = "2FA Block 3", goldCost = 240 }
+        new ShopItem { itemName = "2FA Block 1", goldCost = 1 },
+        new ShopItem { itemName = "2FA Block 2", goldCost = 1 },
+        new ShopItem { itemName = "2FA Block 3", goldCost = 1 }
     };
 
     private void Awake()
@@ -272,6 +273,10 @@ public class ShopManager : MonoBehaviour
         else if (item.itemName.Contains("DDoS Protection Block 3"))
         {
             InventoryManager.Instance.AddCodeBlock(InventoryManager.CodeBlockType.DDoSProtectionBlock3);
+        }
+        else if (item.itemName.Contains("DDoS Protection Block 4"))
+        {
+            InventoryManager.Instance.AddCodeBlock(InventoryManager.CodeBlockType.DDoSProtectionBlock4);
         }
         else if (item.itemName.Contains("2FA Block 1"))
         {

@@ -21,7 +21,8 @@ public class InventoryManager : MonoBehaviour
     
     DDoSProtectionBlock1, 
     DDoSProtectionBlock2, 
-    DDoSProtectionBlock3, 
+    DDoSProtectionBlock3,
+    DDoSProtectionBlock4,  
     
     TwoFactorAuthenticationBlock1, 
     TwoFactorAuthenticationBlock2, 
