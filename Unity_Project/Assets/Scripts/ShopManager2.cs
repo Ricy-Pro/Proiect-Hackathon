@@ -24,11 +24,10 @@ public class ShopManager2 : MonoBehaviour
     public ShopItem[] shopItems = new ShopItem[]
     {
         new ShopItem { 
-            itemName = "Tower1", 
+            itemName = "2FA", 
             towerPrefab = null, 
             requiredBlocks = new InventoryManager.CodeBlockType[]
             {   InventoryManager.CodeBlockType.TwoFactorAuthenticationBlock1, 
-  
                 InventoryManager.CodeBlockType.TwoFactorAuthenticationBlock2,
                 InventoryManager.CodeBlockType.TwoFactorAuthenticationBlock3
                 
@@ -36,7 +35,7 @@ public class ShopManager2 : MonoBehaviour
             }
         },
         new ShopItem { 
-            itemName = "Tower2", 
+            itemName = "SQL", 
             towerPrefab = null, 
             requiredBlocks = new InventoryManager.CodeBlockType[]
             {   InventoryManager.CodeBlockType.SQLInjectionBlock1,
@@ -47,7 +46,7 @@ public class ShopManager2 : MonoBehaviour
             }
         },
         new ShopItem { 
-            itemName = "Tower3", 
+            itemName = "DDoS", 
             towerPrefab = null, 
             requiredBlocks = new InventoryManager.CodeBlockType[]
             {   InventoryManager.CodeBlockType.DDoSProtectionBlock1,
@@ -58,7 +57,7 @@ public class ShopManager2 : MonoBehaviour
             }
         },
         new ShopItem { 
-            itemName = "Tower4", 
+            itemName = "FireWall", 
             towerPrefab = null, 
             requiredBlocks = new InventoryManager.CodeBlockType[]
             {
