@@ -83,15 +83,23 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
-        shopPanel.SetActive(false);  // Hide the shop panel when the button is clicked
-        //cameraController.isShopOpen = false;
+        ShopStopper.IsShopOpen = false;
+        shopPanel.SetActive(false);
     }
 
     // Open the shop when the building is clicked (this will be connected to a collider)
     public void OpenShop()
     {
-        shopPanel.SetActive(true);  // Show the shop panel
-       // cameraController.isShopOpen = true;
+        if (ShopStopper.IsShopOpen)
+        {
+            // Prevent opening this shop if another is already open
+            Debug.Log("Another shop is already open!");
+            return;
+        }
+
+        // Open this shop and block others
+        ShopStopper.IsShopOpen = true;
+        shopPanel.SetActive(true);
     }
 
     // Populate the shop with buttons based on the items

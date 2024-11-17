@@ -134,11 +134,21 @@ public class ShopManager2 : MonoBehaviour
 
     public void CloseShop()
     {
+        ShopStopper.IsShopOpen = false;
         shopPanel.SetActive(false);
     }
 
     public void OpenShop()
     {
+        if (ShopStopper.IsShopOpen)
+        {
+            // Prevent opening this shop if another is already open
+            Debug.Log("Another shop is already open!");
+            return;
+        }
+
+        // Open this shop and block others
+        ShopStopper.IsShopOpen = true;
         shopPanel.SetActive(true);
     }
 

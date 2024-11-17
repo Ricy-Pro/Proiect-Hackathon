@@ -15,6 +15,16 @@ public class MiniGameManager : MonoBehaviour
     // Called when the building (e.g., Firewall_Gen) is clicked
     public void StartMiniGame(string blockType)
     {
+        if (ShopStopper.IsShopOpen)
+        {
+            // Prevent opening this shop if another is already open
+            Debug.Log("Another shop is already open!");
+            return;
+        }
+
+        // Open this shop and block others
+        ShopStopper.IsShopOpen = true;
+    
         // Show the mini-game UI
         miniGamePanel.SetActive(true);
 
@@ -38,8 +48,9 @@ public class MiniGameManager : MonoBehaviour
     }
         public void CloseMiniGame()
     {
-        miniGamePanel.SetActive(false);  // Hide the shop panel when the button is clicked
-        //cameraController.isShopOpen = false;
+         ShopStopper.IsShopOpen = false;
+        miniGamePanel.SetActive(false);
+       
     }
 
     // When the user presses the submit button
