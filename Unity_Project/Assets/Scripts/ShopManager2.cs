@@ -12,6 +12,7 @@ public class ShopManager2 : MonoBehaviour
     public Button closeButton;
 
     public TowerPlacementManager towerPlacementManager;
+    private int ok = 0;
 
     [System.Serializable]
     public class ShopItem
@@ -104,6 +105,7 @@ public class ShopManager2 : MonoBehaviour
 
     private void Awake()
     {
+        shopPanel.SetActive(false);
         if (Instance == null)
         {
             Instance = this;
@@ -113,11 +115,14 @@ public class ShopManager2 : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
+        if (ok != 0)
+        {ReassignFields();
+        ok=1;}
         shopPanel.SetActive(false);
 
         if (closeButton != null)
@@ -132,6 +137,39 @@ public class ShopManager2 : MonoBehaviour
         PopulateShop();
     }
 
+private void ReassignFields()
+    {
+        if (shopPanel == null)
+        {
+            shopPanel = GameObject.Find("ShopPanel");
+            if (shopPanel == null) Debug.LogWarning("Shop Panel is not found!");
+        }
+
+        if (shopItemButtonPrefab == null)
+        {
+            shopItemButtonPrefab = Resources.Load<GameObject>("ShopItemButtonPrefab");  // Ensure the prefab is loaded
+            if (shopItemButtonPrefab == null) Debug.LogWarning("Shop Item Button Prefab is not found!");
+        }
+
+        if (shopContent == null)
+        {
+            shopContent = shopPanel ? shopPanel.transform.Find("ShopContent") : null;
+            if (shopContent == null) Debug.LogWarning("Shop Content is not found!");
+        }
+
+        if (closeButton == null)
+        {
+            closeButton = shopPanel ? shopPanel.GetComponentInChildren<Button>() : null;
+            if (closeButton == null) Debug.LogWarning("Close Button is not found!");
+        }
+
+        if (towerPlacementManager == null)
+        {
+            towerPlacementManager = FindObjectOfType<TowerPlacementManager>();
+            if (towerPlacementManager == null) Debug.LogWarning("Tower Placement Manager is not found!");
+        }
+        shopPanel.SetActive(false);
+    }
     public void CloseShop()
     {
         ShopStopper.IsShopOpen = false;

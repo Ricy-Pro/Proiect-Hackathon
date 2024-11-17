@@ -5,9 +5,11 @@ public class MobSpawner : MonoBehaviour
 {
     public GameObject[] mobPrefabs;      // Array of mob prefabs to spawn
     public Transform[] spawnPoints;     // Array of spawn points
-    public float spawnInterval = 2f;    // Time between spawns
+    public float spawnInterval = 10f;    // Time between spawns
     public Transform castleTransform;   // Target for mobs, assign in the Inspector
     private CastleHealth castleHealth; // Reference to the castle's health
+
+    public static int mobNumbers;
 
     private bool isCastleDestroyed = false; // Flag to stop spawning if the castle is destroyed
 
@@ -15,6 +17,7 @@ public class MobSpawner : MonoBehaviour
     {
         Debug.Log("MobSpawner started!");
         castleHealth = FindObjectOfType<CastleHealth>();
+        mobNumbers=30;
         if (castleHealth == null)
         {
             Debug.LogError("CastleHealth component not found in the scene!");
@@ -52,7 +55,15 @@ public class MobSpawner : MonoBehaviour
             {
                 mobScript.castleTransform = castleTransform; // Assign castle target to the mob
             }
-
+            if(spawnInterval>1.0f)
+            if(mobNumbers==0) 
+                {
+                spawnInterval=spawnInterval-1.0f;
+                mobNumbers=30;
+                }
+            else
+            mobNumbers--;
+            
             yield return new WaitForSeconds(spawnInterval); // Wait before spawning the next mob
 
           

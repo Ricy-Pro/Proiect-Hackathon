@@ -58,7 +58,7 @@ public class CastleHealth : MonoBehaviour
         // If health reaches 0, handle destruction
         if (currentHealth <= 0)
         {
-            
+            ShopStopper.IsShopOpen = false;
             gameOverManager.ShowGameOverScreen();
             DestroyCastle();
             

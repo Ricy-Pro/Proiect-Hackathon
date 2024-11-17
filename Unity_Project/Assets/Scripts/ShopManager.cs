@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     public GameObject shopItemButtonPrefab;  // Button prefab to instantiate
     public Transform shopContent;  // The content area to hold the buttons (where we’ll add the items)
     public Button closeButton;
+    private int ok = 0;
     
     public TextMeshProUGUI codeDisplayText;
 
@@ -47,6 +48,7 @@ public class ShopManager : MonoBehaviour
 
     private void Awake()
     {
+        shopPanel.SetActive(false);
         // Check if an instance already exists
         if (Instance == null)
         {
@@ -58,14 +60,17 @@ public class ShopManager : MonoBehaviour
         }
 
         // Don't destroy the ShopManager when switching scenes
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
         // Initially hide the shop panel
         shopPanel.SetActive(false);
-
+        if (ok != 0)
+        {
+            ReassignFields();
+        ok++;}
         // Assign listener to the close button
         if (closeButton != null)
         {
@@ -79,8 +84,38 @@ public class ShopManager : MonoBehaviour
 
         // Populate the shop with items
         PopulateShop();
+
     }
 
+  private void ReassignFields()
+    {
+        
+        // Automatically find and reassign references to the relevant GameObjects in the scene
+        if (shopPanel == null)
+        {
+            shopPanel = GameObject.Find("ShopPanel");
+            if (shopPanel == null) Debug.LogWarning("Shop Panel is not found!");
+        }
+
+        if (shopItemButtonPrefab == null)
+        {
+            shopItemButtonPrefab = Resources.Load<GameObject>("ShopItemButtonPrefab");  // Or use another method to load this
+            if (shopItemButtonPrefab == null) Debug.LogWarning("Shop Item Button Prefab is not found!");
+        }
+
+        if (shopContent == null)
+        {
+            shopContent = shopPanel ? shopPanel.transform.Find("ShopContent") : null;
+            if (shopContent == null) Debug.LogWarning("Shop Content is not found!");
+        }
+
+        if (codeDisplayText == null)
+        {
+            codeDisplayText = shopPanel ? shopPanel.transform.Find("CodeDisplayText").GetComponent<TextMeshProUGUI>() : null;
+            if (codeDisplayText == null) Debug.LogWarning("Code Display Text is not found!");
+        }
+        ShopStopper.IsShopOpen = false;
+    }
     public void CloseShop()
     {
         ShopStopper.IsShopOpen = false;

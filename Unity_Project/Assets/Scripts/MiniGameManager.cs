@@ -126,33 +126,33 @@ public class MiniGameManager : MonoBehaviour
         switch (blockType)
         {
             case "Firewall Block 1":
-                return "FirewallBlock1";
+                return "Firewall1";
             case "Firewall Block 2":
-                return "FirewallBlock2";
+                return "Firewall2";
             case "Firewall Block 3":
-                return "FirewallBlock3";
+                return "Firewall3";
             case "Firewall Block 4":
-                return "FirewallBlock4";
+                return "Firewall4";
             case "SQL Injection Block 1":
-                return "SQLInjectionBlock1";
+                return "SQL1";
             case "SQL Injection Block 2":
-                return "SQLInjectionBlock2";
+                return "SQL2";
             case "SQL Injection Block 3":
-                return "SQLInjectionBlock3";
+                return "SQL3";
             case "SQL Injection Block 4":
-                return "SQLInjectionBlock4";
+                return "SQL4";
             case "DDoS Protection Block 1":
-                return "DDoSProtectionBlock1";
+                return "DDoS1";
             case "DDoS Protection Block 2":
-                return "DDoSProtectionBlock2";
+                return "DDoS2";
             case "DDoS Protection Block 3":
-                return "DDoSProtectionBlock3";
+                return "DDoS3";
             case "2FA Block 1":
-                return "TwoFactorAuthenticationBlock1";
+                return "2FA1";
             case "2FA Block 2":
-                return "TwoFactorAuthenticationBlock2";
+                return "2FA2";
             case "2FA Block 3":
-                return "TwoFactorAuthenticationBlock3";
+                return "2FA3";
             default:
                 return ""; // Default case
         }

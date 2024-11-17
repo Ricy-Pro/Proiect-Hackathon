@@ -8,6 +8,7 @@ TagManager:
   - Mob
   - CastleHealth
   - Firewall
+  - Timer
   layers:
   - Default
   - TransparentFX

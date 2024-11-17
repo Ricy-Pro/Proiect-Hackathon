@@ -1,26 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public  class GameOverManager : MonoBehaviour
+public class GameOverManager : MonoBehaviour
 {
     public GameObject gameOverUI; // Reference to the Game Over screen UI
 
+    // Show the Game Over screen
     public void ShowGameOverScreen()
     {
-        Debug.Log("ShowGameOverScreen called");
         gameOverUI.SetActive(true); // Activate the Game Over screen
         Time.timeScale = 0f; // Pause the game (optional)
     }
 
+    // Restart the game by reloading the current scene
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Reset the time scale
+        Time.timeScale = 1f; // Reset the time scale to normal
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reload the current scene
     }
 
-    public void LoadMainMenu()
+    // Quit the game
+    public void QuitGame()
     {
-        Time.timeScale = 1f; // Reset the time scale
-        SceneManager.LoadScene("MainMenu"); // Load the Main Menu scene (adjust the name as necessary)
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
+        #else
+        Application.Quit(); // Quit the application
+        #endif
     }
 }
