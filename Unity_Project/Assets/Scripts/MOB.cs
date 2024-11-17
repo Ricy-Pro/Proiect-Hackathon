@@ -70,12 +70,16 @@ public class MOB : MonoBehaviour
 
     private void MoveTowardsCastle()
     {
+        
         // Move toward the castle without rotating the sprite
         Vector2 direction = (castleTransform.position - transform.position).normalized;
         transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
 
     private IEnumerator Attack()
+{
+    // Ensure castleTransform is not null before accessing its components
+    if (castleTransform != null)
     {
         CastleHealth castleHealth = castleTransform.GetComponent<CastleHealth>();
         if (castleHealth != null)
@@ -83,10 +87,20 @@ public class MOB : MonoBehaviour
             castleHealth.TakeDamage(damage);  // Damage the castle
             Debug.Log($"Castle under attack! Damage dealt: {damage}");
         }
-
-        yield return new WaitForSeconds(0.01f); // Wait briefly before destroying the mob
-        Destroy(gameObject);                  // Destroy the mob after attacking
+        else
+        {
+            Debug.LogError("CastleHealth component not found on the castle!");
+        }
     }
+    else
+    {
+        Debug.LogError("castleTransform is null! Unable to attack the castle.");
+    }
+
+    yield return new WaitForSeconds(0.01f); // Wait briefly before destroying the mob
+    Destroy(gameObject);                  // Destroy the mob after attacking
+}
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

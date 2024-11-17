@@ -12,6 +12,7 @@ public class CastleHealth : MonoBehaviour
 
     // Reference to the Fill Area Image component (for color changes)
     public Image healthBarFillImage; 
+   public GameOverManager gameOverManager;
 
     void Start()
     {
@@ -29,6 +30,10 @@ public class CastleHealth : MonoBehaviour
         {
             healthBarFillImage.color = Color.green;  // Initial color (green when full health)
         }
+        if (gameOverManager == null)
+    {
+        gameOverManager = FindObjectOfType<GameOverManager>();
+    }
     }
 
  public void TakeDamage(int damage)
@@ -53,7 +58,10 @@ public class CastleHealth : MonoBehaviour
         // If health reaches 0, handle destruction
         if (currentHealth <= 0)
         {
+            
+            gameOverManager.ShowGameOverScreen();
             DestroyCastle();
+            
         }
     }
 
