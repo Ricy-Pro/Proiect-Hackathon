@@ -5,7 +5,7 @@ public class Virus_Mob : MOB
 {
     [Header("Virus Specific Settings")]
     public float timeToDouble = 2f;    // Time interval to duplicate
-    public float repelForce = 5f;      // Force applied to separate mobs
+    //public float repelForce = 5f;      // Force applied to separate mobs
     public GameObject mobPrefab;       // Prefab for spawning new mobs
     public static int virusCount = 0;  // Global counter for Virus_Mobs
     public int maxVirusCount = 10;     // Maximum allowed Virus_Mobs
@@ -39,15 +39,6 @@ public class Virus_Mob : MOB
         Debug.Log("Maximum Virus_Mob count reached. Stopping duplication.");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Mob"))
-        {
-            // Push mobs apart to prevent overlap
-            Vector2 direction = (transform.position - collision.transform.position).normalized;
-            GetComponent<Rigidbody2D>()?.AddForce(direction * repelForce, ForceMode2D.Impulse);
-        }
-    }
 
     private void OnDestroy()
     {

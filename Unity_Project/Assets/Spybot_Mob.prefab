@@ -146,7 +146,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1085444323716240087}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -179,3 +179,5 @@ MonoBehaviour:
   maxHealth: 10
   damage: 2
   moveSpeed: 10
+  separationRadius: 1
+  separationForce: 1

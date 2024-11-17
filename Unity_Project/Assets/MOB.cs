@@ -10,6 +10,11 @@ public class MOB : MonoBehaviour
 
     private int currentHealth;          // Current health of the mob
     private Coroutine attackCoroutine;  // Coroutine for attack logic
+    public float repelForce = 5f;      // Force to apply to push mobs away from each other
+    public float collisionRadius = 0.5f; // Radius to detect other mobs in collision
+
+    private Rigidbody2D rb;
+
 
     protected virtual void Start()
     {
@@ -81,5 +86,15 @@ public class MOB : MonoBehaviour
 
         yield return new WaitForSeconds(0.01f); // Wait briefly before destroying the mob
         Destroy(gameObject);                  // Destroy the mob after attacking
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mob"))
+        {
+            // Apply a force to separate the mobs when they collide
+            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            rb.AddForce(direction * repelForce, ForceMode2D.Impulse);
+        }
     }
 }
