@@ -54,7 +54,9 @@ public class CastleHealth : MonoBehaviour
         // If health reaches 0, handle destruction
         if (currentHealth <= 0)
         {
+             
             DestroyCastle();
+            FindObjectOfType<GameOverManager>().GameOver();
         }
     }
 

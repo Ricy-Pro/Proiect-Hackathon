@@ -57,14 +57,22 @@ public class ShopManager : MonoBehaviour
         }
 
         // Don't destroy the ShopManager when switching scenes
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // Initially hide the shop panel
-        shopPanel.SetActive(false);
+        if (shopPanel == null) 
+            shopPanel = GameObject.Find("ShopPanel"); // Find the shop panel in the scene
+        if (shopItemButtonPrefab == null)
+            shopItemButtonPrefab = Resources.Load<GameObject>("ShopItemButtonPrefab"); // Use Resources if prefabs are not assigned
+        if (shopContent == null)
+            shopContent = GameObject.Find("ShopContent").transform; // Find the shop content object in the scene
+        if (closeButton == null)
+            closeButton = GameObject.Find("CloseButton").GetComponent<Button>(); // Find the close button
+       
 
+<<<<<<< Updated upstream
         // Assign listener to the close button
         if (closeButton != null)
         {
@@ -77,6 +85,11 @@ public class ShopManager : MonoBehaviour
 
         // Populate the shop with items
         PopulateShop();
+=======
+        // Proceed with setup and UI population
+        PopulateShop();  // Populate the shop items
+        closeButton.onClick.AddListener(CloseShop);  // Add listener for closing the shop
+>>>>>>> Stashed changes
     }
 
     public void CloseShop()
