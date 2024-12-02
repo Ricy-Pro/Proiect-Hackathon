@@ -8,19 +8,18 @@ Firewall
 2FA (Two-Factor Authentication)
 SQL Injection
 DDoS Protection
-Funcționalități Cheie
-Gamificarea conceptelor de securitate cibernetică
-Interfață retro, culori vibrante, atractivă pentru toate vârstele
-Integrare în cursuri de educație cibernetică
-Sistem de progresie bazat pe învățarea activă prin joc
-Public Țintă
-Jocul este destinat:
+Funcționalități Cheie:
+-Gamificarea conceptelor de securitate cibernetică
+-Interfață retro, culori vibrante, atractivă pentru toate vârstele
+-Integrare în cursuri de educație cibernetică
+-Sistem de progresie bazat pe învățarea activă prin joc
 
-Tinerilor dornici să învețe securitate cibernetică prin joacă
-Adulților nostalgici față de interfața retro a jocului
-Profesioniștilor care doresc să-și extindă cunoștințele în securitate cibernetică într-un mod interactiv
+Jocul este destinat:
+-Tinerilor dornici să învețe securitate cibernetică prin joacă
+-Adulților nostalgici față de interfața retro a jocului
+-Profesioniștilor care doresc să-și extindă cunoștințele în securitate cibernetică într-un mod interactiv
 Tehnologii Utilizate:
-Unity: Motorul grafic pentru dezvoltarea jocului.
-C#: Limbaj de programare pentru logica jocului.
-TextMeshPro: Pentru afișarea textelor clare și moderne.
-GitHub: Pentru gestionarea versiunilor și colaborare în echipă.
+-Unity: Motorul grafic pentru dezvoltarea jocului.
+-C#: Limbaj de programare pentru logica jocului.
+-TextMeshPro: Pentru afișarea textelor clare și moderne.
+-GitHub: Pentru gestionarea versiunilor și colaborare în echipă.
