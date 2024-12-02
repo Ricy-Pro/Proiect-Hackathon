@@ -1,5 +1,5 @@
 Cyber Defense Game - Light Wind Team
-Descrierea Proiectului
+
 Cyber Defense Game este un joc educațional interactiv care combină divertismentul cu învățarea elementelor esențiale din securitatea cibernetică. Conceput pentru adolescenți și copii, acest joc este o parte integrantă a unui curs complet de securitate cibernetică, oferind utilizatorilor o experiență captivantă și ușor de asimilat.
 
 Jucătorii vor învăța să identifice și să aplice tehnici de apărare împotriva unor atacuri cibernetice comune precum:
