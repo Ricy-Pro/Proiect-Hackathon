@@ -1,8 +1,8 @@
 Cyber Defense Game
 
-Cyber Defense Game este un joc educațional interactiv care combină divertismentul cu învățarea elementelor esențiale din securitatea cibernetică. Conceput pentru adolescenți și copii, acest joc este o parte integrantă a unui curs complet de securitate cibernetică, oferind utilizatorilor o experiență captivantă și ușor de asimilat.
+Cyber Defense Game is an interactive educational game that combines entertainment with learning essential cybersecurity concepts. Designed for teenagers and children, this game is an integral part of a comprehensive cybersecurity course, offering users an engaging and easy-to-understand experience.
 
-Jucătorii vor învăța să identifice și să aplice tehnici de apărare împotriva unor atacuri cibernetice comune precum:
+Players will learn to identify and apply defense techniques against common cyberattacks such as:
 
 -Firewall
 
@@ -12,31 +12,31 @@ Jucătorii vor învăța să identifice și să aplice tehnici de apărare împo
 
 -DDoS Protection
 
-Funcționalități Cheie:
+Key Features:
 
--Gamificarea conceptelor de securitate cibernetică
+-Gamification of cybersecurity concepts
 
--Interfață retro, culori vibrante, atractivă pentru toate vârstele
+-Retro interface with vibrant colors, appealing to all age groups
 
--Integrare în cursuri de educație cibernetică
+-Integration into cybersecurity education courses
 
--Sistem de progresie bazat pe învățarea activă prin joc
+-Progression system based on active learning through gameplay
 
 
-Jocul este destinat:
+The game is intended for:
 
--Tinerilor dornici să învețe securitate cibernetică prin joacă
+-Young learners eager to explore cybersecurity through play
 
--Adulților nostalgici față de interfața retro a jocului
+-Adults nostalgic for retro-style interfaces
 
--Profesioniștilor care doresc să-și extindă cunoștințele în securitate cibernetică într-un mod interactiv
+-Professionals looking to expand their cybersecurity knowledge in an interactive way
 
-Tehnologii Utilizate:
+Technologies Used:
 
--Unity: Motorul grafic pentru dezvoltarea jocului.
+-Unity: Game engine for development.
 
--C#: Limbaj de programare pentru logica jocului.
+-C#: Programming language for game logic.
 
--TextMeshPro: Pentru afișarea textelor clare și moderne.
+-TextMeshPro: For clear and modern text display.
 
--GitHub: Pentru gestionarea versiunilor și colaborare în echipă.
+-GitHub: For version control and team collaboration.
